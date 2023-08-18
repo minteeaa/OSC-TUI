@@ -10,7 +10,6 @@ async function start() {
     let global = tm.createDocument({ palette: new term.Palette() })
     let home = new HomescreenPage(global)
     displayTitle()
-    tm.nextLine(1)
     tm('[ starting monitor processes ]')
     await startHyperateMon(home)
     tm.clear()
@@ -21,12 +20,12 @@ async function start() {
 start()
 
 tm.on('key', function(key: any) {
-	switch(key) {
-		case 'CTRL_C':
-			tm.grabInput(false)
-			tm.hideCursor(false)
-			tm.styleReset()
-			tm.clear()
-			process.exit()
+    switch(key) {
+    case 'CTRL_C':
+        tm.grabInput(false)
+        tm.hideCursor(false)
+        tm.styleReset()
+        tm.clear()
+        process.exit()
     }
 })
